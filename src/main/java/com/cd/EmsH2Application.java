@@ -8,6 +8,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootApplication
 public class EmsH2Application implements CommandLineRunner {
@@ -27,6 +29,16 @@ public class EmsH2Application implements CommandLineRunner {
         employee.setAge(32);
         employee.setName("Jane Doe");
         employee.setAddress("NH4 Shivare Pune");
-        emsRepository.save(employee);
+        Employee employee2=new Employee();
+        employee2.setDepartment("DU1");
+        employee2.setDesignation("Jr Dev");
+        employee2.setJoiningDate(LocalDate.of(2024,11,29));
+        employee2.setAge(22);
+        employee2.setName("San Andros");
+        employee2.setAddress("NH2 Delhi Delhi6");
+        List<Employee> list = new ArrayList<>();
+        list.add(employee);
+        list.add(employee2);
+        emsRepository.saveAll(list);
     }
 }

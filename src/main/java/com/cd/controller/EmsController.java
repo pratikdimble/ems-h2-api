@@ -18,7 +18,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/ems")
-@CrossOrigin(origins = "http://localhost:63342")
+@CrossOrigin
 public class EmsController {
 
     @Autowired

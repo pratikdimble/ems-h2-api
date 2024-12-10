@@ -30,19 +30,12 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    deploy:
+  deploy:
     
     runs-on: ubuntu-latest
     needs: build
     steps:
-    - run: echo "deploying to external repo"
-    - run: echo "Step1"
-    - run: echo "Step2"
-    - run: echo "Step3"
-    - run: echo "Step4"
-    - run: echo "Step5"
-    - run: echo "Step6"
-    - run: echo "Step7"
+      - run: echo "deploying to external repo"
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
    # - name: Update dependency graph

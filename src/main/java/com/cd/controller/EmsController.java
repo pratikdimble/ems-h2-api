@@ -43,9 +43,15 @@ public class EmsController {
         return  ResponseEntity.ok(iEmsService.getEmployeeById(UUID.fromString(id)));
     }
 
+    @GetMapping("/users/{user}")
+    public ResponseEntity<List<Employee>> getTodosByUser(@PathVariable String user)
+    {
+        return ResponseEntity.ok(iEmsService.getTodosByUser(user));
+    }
+
 
     @PostMapping
-    public ResponseEntity<Employee> addEmployees( @Valid  @RequestBody Employee Employee) throws URISyntaxException {
+    public ResponseEntity<Employee> addEmployee( @Valid  @RequestBody Employee Employee) throws URISyntaxException {
         Employee newEmployee= iEmsService.addEmployee(Employee);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(newEmployee.getEmployeeId()).toUri();
         return  ResponseEntity.created(location).body(newEmployee);
@@ -95,7 +101,7 @@ public class EmsController {
     }
 
     @GetMapping("/users/sort/{order}")
-    public ResponseEntity<List<Employee>> getEmployeeBeforejoiningDate(@PathVariable int order)
+    public ResponseEntity<List<Employee>> sortEmployeeByJoiningDate(@PathVariable int order)
     {
         return ResponseEntity.ok(iEmsService.sortEmployeeByJoiningDate(order));
     }

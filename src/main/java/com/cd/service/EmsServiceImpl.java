@@ -24,6 +24,12 @@ public class EmsServiceImpl implements IEmsService {
     }
 
     @Override
+    public List<Employee> getTodosByUser(String userName) {
+        return emsRepository.findEmployeeByNameEqualsIgnoreCase(userName);
+    }
+
+
+    @Override
     public Employee getEmployeeById(UUID id) {
         return   emsRepository.findById(id).orElseThrow(EmployeeNotFoundException::new);
     }

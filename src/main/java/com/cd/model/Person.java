@@ -19,6 +19,12 @@ public class Person implements Serializable {
     @NotBlank(message = "Name cannot be null or empty!")
     private String name;
 
+    @NotBlank(message = "Title cannot be null or empty!")
+    private String title;
+
+    @NotBlank(message = "Task cannot be null or empty!")
+    private String task;
+
     @NotNull(message = "Age should not be null!")
     @Min(value=18, message = "Minimum working age 18")
     @Max(value=60, message = "Maximum working age 60")

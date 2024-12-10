@@ -10,6 +10,7 @@ import java.util.UUID;
 
 public interface IEmsService {
     List<Employee> getEmployees();
+    List<Employee> getTodosByUser(String userName);
     Employee getEmployeeById(UUID id);
     Employee addEmployee(Employee employee);
     Employee updateEmployee(Employee employee);

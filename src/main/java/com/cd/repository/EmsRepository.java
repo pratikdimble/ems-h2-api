@@ -28,4 +28,6 @@ public interface EmsRepository extends JpaRepository<Employee, UUID > {
     List<Employee> findAllByOrderByJoiningDateAsc();
 
     List<Employee> findAllByOrderByJoiningDateDesc();
+    List<Employee> findEmployeeByNameEqualsIgnoreCase(@NotBlank(message = "Name should not be null!") String name);
+
 }
